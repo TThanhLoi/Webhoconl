@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="onllearningwebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShowOnHomePage" Type="bit" />
+          <Property Name="ImgC" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Oder">
+          <Key>
+            <PropertyRef Name="Oder_ID" />
+          </Key>
+          <Property Name="Oder_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Subject_ID" Type="int" />
+          <Property Name="Oder_Date" Type="date" />
+          <Property Name="Total" Type="float" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Phonenumber" Type="int" />
+          <Property Name="CreditCardNumber" Type="int" />
+          <Property Name="CardHolderName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExpireDate" Type="datetime" />
+          <Property Name="BankingName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountNumber" Type="int" />
+          <Property Name="name" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="OderDetail">
+          <Key>
+            <PropertyRef Name="Oder_detail_ID" />
+          </Key>
+          <Property Name="Subject_ID" Type="int" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Oder_ID" Type="int" />
+          <Property Name="Line_Total" Type="float" />
+          <Property Name="BeginDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="Oder_detail_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="Subject_ID" />
+          </Key>
+          <Property Name="Subject_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="80" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Price_discount" Type="int" />
+          <Property Name="Img" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lecturer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Category_ID" Type="int" />
+          <Property Name="Type_ID" Type="int" />
+          <Property Name="ShowOnHomePage" Type="bit" />
+          <Property Name="Quantily" Type="int" />
+        </EntityType>
+        <EntityType Name="SubjectContent">
+          <Key>
+            <PropertyRef Name="SectionId" />
+          </Key>
+          <Property Name="Subject_ID" Type="int" />
+          <Property Name="SectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Content" Type="varchar" MaxLength="50" />
+          <Property Name="VideoLink" Type="varchar" MaxLength="50" />
+          <Property Name="Time" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phonenumber" Type="int" />
+          <Property Name="Role" Type="nvarchar" MaxLength="20" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImgURL" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Oder_User1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Oder" Type="Self.Oder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Oder">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OderDetail_Oder">
+          <End Role="Oder" Type="Self.Oder" Multiplicity="0..1" />
+          <End Role="OderDetail" Type="Self.OderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oder">
+              <PropertyRef Name="Oder_ID" />
+            </Principal>
+            <Dependent Role="OderDetail">
+              <PropertyRef Name="Oder_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OderDetail_Subject">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="OderDetail" Type="Self.OderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="Subject_ID" />
+            </Principal>
+            <Dependent Role="OderDetail">
+              <PropertyRef Name="Subject_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subject_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubjectContent_Subject">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="SubjectContent" Type="Self.SubjectContent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="Subject_ID" />
+            </Principal>
+            <Dependent Role="SubjectContent">
+              <PropertyRef Name="Subject_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="onllearningwebModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oder" EntityType="Self.Oder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OderDetail" EntityType="Self.OderDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubjectContent" EntityType="Self.SubjectContent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Oder_User1" Association="Self.FK_Oder_User1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Oder" EntitySet="Oder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OderDetail_Oder" Association="Self.FK_OderDetail_Oder">
+            <End Role="Oder" EntitySet="Oder" />
+            <End Role="OderDetail" EntitySet="OderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OderDetail_Subject" Association="Self.FK_OderDetail_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="OderDetail" EntitySet="OderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subject_Category" Association="Self.FK_Subject_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Subject" EntitySet="Subject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubjectContent_Subject" Association="Self.FK_SubjectContent_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="SubjectContent" EntitySet="SubjectContent" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="onllearningwebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShowOnHomePage" Type="Boolean" />
+          <Property Name="ImgC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subjects" Relationship="Self.FK_Subject_Category" FromRole="Category" ToRole="Subject" />
+        </EntityType>
+        <EntityType Name="Oder">
+          <Key>
+            <PropertyRef Name="Oder_ID" />
+          </Key>
+          <Property Name="Oder_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Subject_ID" Type="Int32" />
+          <Property Name="Oder_Date" Type="DateTime" Precision="0" />
+          <Property Name="Total" Type="Double" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Phonenumber" Type="Int32" />
+          <Property Name="CreditCardNumber" Type="Int32" />
+          <Property Name="CardHolderName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExpireDate" Type="DateTime" Precision="3" />
+          <Property Name="BankingName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountNumber" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Oder_User1" FromRole="Oder" ToRole="User" />
+          <NavigationProperty Name="OderDetails" Relationship="Self.FK_OderDetail_Oder" FromRole="Oder" ToRole="OderDetail" />
+        </EntityType>
+        <EntityType Name="OderDetail">
+          <Key>
+            <PropertyRef Name="Oder_detail_ID" />
+          </Key>
+          <Property Name="Subject_ID" Type="Int32" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Oder_ID" Type="Int32" />
+          <Property Name="Line_Total" Type="Double" />
+          <Property Name="BeginDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="Oder_detail_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Oder" Relationship="Self.FK_OderDetail_Oder" FromRole="OderDetail" ToRole="Oder" />
+          <NavigationProperty Name="Subject" Relationship="Self.FK_OderDetail_Subject" FromRole="OderDetail" ToRole="Subject" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="Subject_ID" />
+          </Key>
+          <Property Name="Subject_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Price_discount" Type="Int32" />
+          <Property Name="Img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lecturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Category_ID" Type="Int32" />
+          <Property Name="Type_ID" Type="Int32" />
+          <Property Name="ShowOnHomePage" Type="Boolean" />
+          <Property Name="Quantily" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Subject_Category" FromRole="Subject" ToRole="Category" />
+          <NavigationProperty Name="OderDetails" Relationship="Self.FK_OderDetail_Subject" FromRole="Subject" ToRole="OderDetail" />
+          <NavigationProperty Name="SubjectContents" Relationship="Self.FK_SubjectContent_Subject" FromRole="Subject" ToRole="SubjectContent" />
+        </EntityType>
+        <EntityType Name="SubjectContent">
+          <Key>
+            <PropertyRef Name="SectionId" />
+          </Key>
+          <Property Name="Subject_ID" Type="Int32" />
+          <Property Name="SectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VideoLink" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Time" Type="Time" Precision="7" />
+          <NavigationProperty Name="Subject" Relationship="Self.FK_SubjectContent_Subject" FromRole="SubjectContent" ToRole="Subject" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phonenumber" Type="Int32" />
+          <Property Name="Role" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImgURL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Oders" Relationship="Self.FK_Oder_User1" FromRole="User" ToRole="Oder" />
+        </EntityType>
+        <Association Name="FK_Subject_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oder_User1">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Oder" Type="Self.Oder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Oder">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OderDetail_Oder">
+          <End Role="Oder" Type="Self.Oder" Multiplicity="0..1" />
+          <End Role="OderDetail" Type="Self.OderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Oder">
+              <PropertyRef Name="Oder_ID" />
+            </Principal>
+            <Dependent Role="OderDetail">
+              <PropertyRef Name="Oder_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OderDetail_Subject">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="OderDetail" Type="Self.OderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="Subject_ID" />
+            </Principal>
+            <Dependent Role="OderDetail">
+              <PropertyRef Name="Subject_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubjectContent_Subject">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="SubjectContent" Type="Self.SubjectContent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="Subject_ID" />
+            </Principal>
+            <Dependent Role="SubjectContent">
+              <PropertyRef Name="Subject_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="onllearningwebEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Oders" EntityType="Self.Oder" />
+          <EntitySet Name="OderDetails" EntityType="Self.OderDetail" />
+          <EntitySet Name="Subjects" EntityType="Self.Subject" />
+          <EntitySet Name="SubjectContents" EntityType="Self.SubjectContent" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Subject_Category" Association="Self.FK_Subject_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Subject" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oder_User1" Association="Self.FK_Oder_User1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Oder" EntitySet="Oders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OderDetail_Oder" Association="Self.FK_OderDetail_Oder">
+            <End Role="Oder" EntitySet="Oders" />
+            <End Role="OderDetail" EntitySet="OderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OderDetail_Subject" Association="Self.FK_OderDetail_Subject">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="OderDetail" EntitySet="OderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubjectContent_Subject" Association="Self.FK_SubjectContent_Subject">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="SubjectContent" EntitySet="SubjectContents" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="onllearningwebModelStoreContainer" CdmEntityContainer="onllearningwebEntities1">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="onllearningwebModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
+                <ScalarProperty Name="ImgC" ColumnName="ImgC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oders">
+            <EntityTypeMapping TypeName="onllearningwebModel.Oder">
+              <MappingFragment StoreEntitySet="Oder">
+                <ScalarProperty Name="Oder_ID" ColumnName="Oder_ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Subject_ID" ColumnName="Subject_ID" />
+                <ScalarProperty Name="Oder_Date" ColumnName="Oder_Date" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
+                <ScalarProperty Name="CreditCardNumber" ColumnName="CreditCardNumber" />
+                <ScalarProperty Name="CardHolderName" ColumnName="CardHolderName" />
+                <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+                <ScalarProperty Name="BankingName" ColumnName="BankingName" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OderDetails">
+            <EntityTypeMapping TypeName="onllearningwebModel.OderDetail">
+              <MappingFragment StoreEntitySet="OderDetail">
+                <ScalarProperty Name="Subject_ID" ColumnName="Subject_ID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Oder_ID" ColumnName="Oder_ID" />
+                <ScalarProperty Name="Line_Total" ColumnName="Line_Total" />
+                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Oder_detail_ID" ColumnName="Oder_detail_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="onllearningwebModel.Subject">
+              <MappingFragment StoreEntitySet="Subject">
+                <ScalarProperty Name="Subject_ID" ColumnName="Subject_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Price_discount" ColumnName="Price_discount" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Lecturer" ColumnName="Lecturer" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="Type_ID" ColumnName="Type_ID" />
+                <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
+                <ScalarProperty Name="Quantily" ColumnName="Quantily" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubjectContents">
+            <EntityTypeMapping TypeName="onllearningwebModel.SubjectContent">
+              <MappingFragment StoreEntitySet="SubjectContent">
+                <ScalarProperty Name="Subject_ID" ColumnName="Subject_ID" />
+                <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="VideoLink" ColumnName="VideoLink" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="onllearningwebModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ImgURL" ColumnName="ImgURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,52 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/pizza-logo.ico" type="image/x-icon">
+    <title>web</title>
+    <link rel="stylesheet" href="~/Content/css/web.css">
+    <link rel="stylesheet" href="~/Content/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/vendor/fontawesome/css/all.min.css">
+    <script src="~/Content/vendor/jquery-3.5.1.slim.min.js"></script>
+    <script src="~/Content/vendor/popper.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/fonts/fontawesome-free-6.0.0-web/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="topnav">
+            <a href="~/Home/Index">Home</a>
+            <a href="~/Category/Index">Danh Mục</a>
+            <a href="#">Hướng Dẫn Đăng Ký</a>
+            <a href="#">Deal Sốc</a>
+            <a href="#">Liên Hệ</a>
+            <a href="#other" tittle="Khác"><i class="fa-solid fa-ellipsis-h"></i></a>
+            <span class="icon"><i class="fa fa-search"></i></span>
+            <input type="search" id="search" placeholder="Tìm kiếm" />
+            <a href="~/Cart/Index"><i class="fa fa-cart-plus"></i></a>
+            @if (Session["idUser"] != null)
+            {
+                <a href="~/Account/MyProfile" style="border-left:1px solid gray; padding: 10px">My Profile</a>
+                <a href="~/Home/Logout" style="color: white; background-color:#00aeef; width:80px; height:32px; padding-left:10px">Đăng Xuất</a>
+            }
+            else
+            {
+                <a href="~/Home/Login" style="border-left:1px solid gray; padding: 10px">Đăng nhập</a>
+                <a href="~/Home/Register" style="color: white; background-color:#00aeef; width:80px; height:32px; padding-left:10px">Đăng ký</a>
+            }
+            <hr>
+        </div>
+    </header>
+    <main>
+
+
+        @RenderBody()
+
+    
+    </main>
+    
+</body>
+</html>

@@ -1,0 +1,64 @@
+h3	{
+	text-indent: 275px;
+}
+#left {
+	float: left;
+	text-align: right;
+	margin-left: 300px;
+	padding-right: 23px;
+	border-right: 0.5px solid black;
+}
+
+#left button {
+	color: white;
+	background-color: #2984BD;
+	height: 30px;
+	width: 300px;
+	border: none;
+}
+
+input {
+	height: 30px;
+	width: 300px;
+	margin: 3px 3px;
+}
+
+#mxn{
+	float: left;
+	text-indent: 316px;
+}
+
+#cb input {
+	padding: 20px;
+	height: 20px;
+	width: 20px;
+}
+
+.g-recaptcha{
+  padding-left: 420px;
+}
+
+#right {
+	float: right;
+	text-align: left;
+	margin-right: 300px;
+}
+
+#right button {
+	color: white;
+	background-color: #EE3535;
+	border: none;
+	height: 30px;
+	width: 150px;
+	margin-left: 25px;
+
+}
+
+#right p {
+	text-align: center;
+}
+
+img	{
+	height: 28px;
+	width: 28px;
+}

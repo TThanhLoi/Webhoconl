@@ -1,0 +1,61 @@
+﻿@model Webhoconl.Models.Subject
+@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<div>
+    <h2>Thêm Khóa Học</h2>
+
+</div>
+<div>
+    @using (Html.BeginForm("SaveProduct", "Admin", FormMethod.Post))
+    {
+        <div class="mb-3">
+            <label for="fname">SubjectID</label><br />
+            @Html.TextBoxFor(m => m.Subject_ID, new { @class = "form-control" })<br>
+
+        </div>
+        <div class="mb-3">
+            <label for="fname">Name</label><br />
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })<br>
+
+        </div>
+        <div class="mb-3">
+            <label for="fname">Description</label><br />
+            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })<br>
+
+        </div>
+        <div class="mb-3">
+            <label for="fname">Img</label><br />
+            @Html.TextBoxFor(m => m.Img, new { @class = "form-control" })<br>
+
+        </div>
+        <div class="mb-3">
+            <label for="cCategoryId">Category</label><br />
+            @Html.DropDownListFor(m => m.Category, new SelectList(ViewBag.categories, "Category_ID", "Name"), new { @class = "form-control" })<br\>
+        </div>
+        <div class="mb-3">
+            <label for="fname">Price</label><br />
+            @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })<br>
+
+        </div>
+        <div class="mb-3">
+            <label for="fname">Price_discount</label><br />
+            @Html.TextBoxFor(m => m.Price_discount, new { @class = "form-control" })<br>
+
+        </div>
+        <div class="mb-3">
+            <label for="fname">Lecturer</label><br />
+            @Html.TextBoxFor(m => m.Lecturer, new { @class = "form-control" })<br>
+
+        </div>
+
+        <div class="mb-3">
+            <input type="submit" value="submit" class="btn btn-primary" />
+
+        </div>
+
+        <div class="mb-3">
+            @Html.ActionLink("Back to list", "ListSubject")
+        </div>
+    }
+</div>

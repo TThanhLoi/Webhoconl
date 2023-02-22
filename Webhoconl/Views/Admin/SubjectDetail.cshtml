@@ -1,0 +1,263 @@
+﻿@model Webhoconl.Models.Subject
+
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CT1</title>
+    <link rel="stylesheet" href="~/Content/css/chitiet1.css">
+    <link rel="stylesheet" href="~/content/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/content/vendor/fontawesome/css/all.min.css">
+    <script src="~/content/vendor/jquery-3.5.1.slim.min.js"></script>
+    <script src="~/content/vendor/popper.min.js"></script>
+    <script src="~/content/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/fonts/fontawesome-free-6.0.0-web/css/all.min.css">
+
+</head>
+<body>
+    <section id="main-left">
+        <h3><strong>@Model.Name</strong></h3>
+        <p>@Model.Description</p>
+
+        <img src="~/Content/img/@Model.Img" alt="" style="width: 710px;height:300px; ">
+        <div class="tab-detail hidden-xs">
+            <ul id="menu">
+                <li>
+                    <a href="#gioithieu">Giới Thiệu</a>
+                </li>
+                <li>
+                    <a href="#list">Nội Dung Khóa Học</a>
+                </li>
+                <li>
+                    <a href="#target">Mục Tiêu</a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="target" class="target">
+            <h4><strong>Bạn sẽ học được gì?</strong></h4>
+            <hr>
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <i class="fa-solid fa-check"></i> Lấy lại nền tảng tiếng Anh bị mất gốc, tập trung vào phần nói và nghe.
+                    </div>
+
+                    <div class="col-sm-6 form-group">
+                        <i class="fa-solid fa-check"></i> Bổ trợ cho công việc cũng như học tập một cách tốt nhất và hiệu quả nhất.
+                    </div>
+
+                    <div class="col-sm-6 form-group">
+                        <i class="fa-solid fa-check"></i> Nắm bắt được yếu tố cần thiết khi giao tiếp và làm việc với người nước ngoài
+                    </div>
+
+                    <div class="col-sm-6 form-group">
+                        <i class="fa-solid fa-check"></i> Tự tin trong cuộc sống và giao tiếp với người nước ngoài
+                    </div>
+
+                    <div class="col-sm-6 form-group">
+                        <i class="fa-solid fa-check"></i> Có thể giao tiếp và trả lời phỏng vấn bằng tiếng anh lưu loát.
+                    </div>
+
+                    <div class="col-sm-6 form-group">
+                        <i class="fa-solid fa-check"></i> Cơ hội làm việc trong môi trường nước ngoài với chế độ đãi ngộ cao
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="gioithieu" class="gioithieu">
+            <h4><strong>Giới thiệu khóa học</strong></h4>
+            <hr>
+
+            <strong><i>Tầm quan trọng của tiếng Anh</i></strong>
+            <p>
+                Học một ngôn ngữ đồng nghĩa với việc bạn sẽ học thêm một ngôn ngữ của một nền văn hóa. Hiện nay, Tiếng Anh được xem là ngôn ngữ chung của thế giới, vì vậy ngày càng nhiều người Việt đầu tư học tiếng Anh.
+            </p>
+
+            <p>
+                Bạn có thể nhận thấy, rất nhiều tài liệu học tập ngày nay của các tổ chức, các trường đại học lớn đều đươc viết bằng tiếng Anh. ½ tài liệu trên các website lớn đều được viết bằng tiếng Anh.
+            </p>
+
+            <p>
+                Không những thế, sự hội nhập của thế giới vào thị trường Việt Nam của các công ty nước ngoài khiến cho tiếng Anh càng trở nên quan trọng. Nếu bạn biết tiếng Anh thì sẽ rất dễ dàng xin được công việc tốt, nhanh chóng thăng tiến.
+            </p>
+
+            <strong><i>Học tiếng Anh bắt đầu từ đâu?</i></strong>
+            <p>
+                Tuy nhiên, bạn là những đối tượng mất căn bản tiếng Anh, mất gốc tiếng Anh? Bạn đã quá chán nản với việc học tiếng Anh nhiều năm chưa tiến bộ? Bạn đang tìm kiếm khoá học ngoại ngữ online cho người mất gốc nhưng chưa biết tìm ở đâu. Bạn đang muốn tìm kiếm một giải pháp hiệu quả để học được tiếng Anh nhưng bạn lại quá “lười” để tìm kiếm các trung tâm học.
+            </p>
+
+            <p>
+                Những điều bạn băn khoăn sẽ được xua tan ngay khi bạn đăng ký khóa học của Unica, khóa học tiếng anh mất gốc sẽ giúp bạn khắc phục tất cả khó khăn để vực dậy, khơi nguồn niềm đam mê với TIẾNG ANH. Khóa học tiếng anh giao tiếp cho người mất gốc giúp bạn biết được cách học tiếng Anh đúng cách. Các bạn sẽ được nhập vai vào các tình huống tiếng Anh giao tiếp hết sức thú vị thực tế hàng ngày.
+            </p>
+
+            <p>
+                Lộ trình học “Anh văn giao tiếp cho người hoàn toàn mất gốc” của Giảng viên Ruby Thảo Trần giao tiếp cùng phương pháp phản xạ truyền cảm hứng sẽ giúp bạn nâng cao trình độ một cách nhanh chóng và hiệu quả, bạn sẽ hoàn toàn tự tin với trình độ tiếng Anh giao tiếp mới của bản thân đấy!
+            </p>
+        </div>
+
+        <div id="list" class="list">
+            <div class="container" style="padding-left:0">
+                <h4><strong>Nội dung khóa học</strong></h4>
+                <hr>
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h6 class="panel-title">
+                                <a data-toggle="collapse" href="#collapse1"><i class="fa fa-minus-square" aria-hidden="true"></i> Phần 1: Phát âm tiếng Anh giọng Mỹ</a>
+                            </h6>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 1: Bảng chữ cái + nguyên âm đơn + bài mẫu</a></div>
+
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 2: Nguyên âm đôi + bài mẫu</a></div>
+
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 3: Phụ âm + bài mẫu</a></div>
+
+
+                            <div class="panel-footer"><i class="fa fa-play-circle"></i><a href=""> Bài 4: Quy tắc luyến âm nối chữ + bài mẫu</a></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h6 class="panel-title">
+                                <a data-toggle="collapse" href="#collapse1"><i class="fa fa-minus-square" aria-hidden="true"></i> Phần 2: Từ vựng theo chủ đề nói kết hợp cách đặt câu hỏi</a>
+                            </h6>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 5: WHAT IS ? </a></div>
+
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 6: WHAT KIND OF (bổ sung)</a></div>
+
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 7: WHAT IS THE MAN LIKE? </a></div>
+
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 8: HOW LONG? </a></div>
+
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 9: HOW? </a></div>
+
+                            <div class="panel-footer"><i class="fa fa-play-circle"></i><a href=""> Bài 10: WHY?</a></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h6 class="panel-title">
+                                <a data-toggle="collapse" href="#collapse1"><i class="fa fa-minus-square" aria-hidden="true"></i> Phần 3: Cụm từ diễn đạt theo chủ đề kết hợp ngữ pháp</a>
+                            </h6>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 14: A GOOD FRIEND AND A BAD FRIEND (bổ sung)  </a></div>
+
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 15: ON THE PHONE(bổ sung)</a></div>
+
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 16: CÁCH THUYẾT TRÌNH </a></div>
+
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 17: CÁC BƯỚC CƠ BẢN ĐỂ DIỄN ĐẠT TỐT </a></div>
+
+                            <div class="panel-footer"><i class="fa fa-play-circle"></i><a href=""> Bài 18: FAMILY</a></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h6 class="panel-title">
+                                <a data-toggle="collapse" href="#collapse1"><i class="fa fa-minus-square" aria-hidden="true"></i> Phần 4: Tình huống diễn đạt thực tế</a>
+                            </h6>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 19: DAILY ACTIVITIES </a></div>
+
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 20: SHOPPING</a></div>
+
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 21: TRAVELING </a></div>
+
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 22: NEXT VACATION </a></div>
+
+                            <div class="panel-body"><i class="fa fa-play-circle"></i><a href=""> Bài 23: ILLNESS </a></div>
+
+                            <div class="panel-footer"><i class="fa fa-play-circle"></i><a href=""> Bài 24: INTERVIEW</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="main-right">
+        <div class="block-buy block-buy-course-detail" style="position: fixed; top: 90px; right: 60px">
+            <div class="u-sm-left">
+                <ul>
+                    <li>
+                        <h4><strong>@Model.Price_discount <sup>đ</sup></strong></h4>
+                    </li>
+
+                    <li>
+                        <span class="small-price">@Model.Price</span>
+                        <sup>đ</sup>
+                    </li>
+
+                    <li>
+                        <p>(20%) OFF</p>
+                    </li>
+                </ul>
+
+                <p style="font-weight:bold; text-align:center;">Thời gian ưu đãi còn 1 ngày</p>
+                <div id="button" style="text-align: center">
+                    <div>
+                        <a id="dk" href=""> Đăng Ký Học</a>
+                    </div>
+
+                    <div>
+                        @using (Html.BeginForm("AddToCart", "Cart", FormMethod.Post, new { @class = "form" }))
+                        {
+                            <label style="height:10px" for="SubjectId" class="form-label"></label><br>
+                            @Html.HiddenFor(m => m.Subject_ID, new { @class = "form-control" })
+
+                            <button style="background:#0bb732; color:white; width: 230px; height:50px; border-radius:5px;margin-top:20px;"><i class="fa fa-cart-plus"></i> Thêm Vào Giỏ Hàng</button>
+                        }
+                    </div>
+
+
+                    <p style="text-align: center">Hoàn tiền 7 ngày nếu không hài lòng</p>
+                </div>
+            </div>
+
+            <div class="u-sm-right">
+                <div class="block-ulti">
+
+                    <ul style="margin-left: 25px">
+                        <li>
+                            <p><i class="fa fa-clock"></i> Thời lượng: 04 giờ 19 phút</p>
+                        </li>
+                        <br>
+                        <li>
+                            <p><i class="fa-solid fa-circle-play"></i> Giáo trình: 24 bài giảng</p>
+                        </li>
+                        <br>
+                        <li>
+                            <p><i class="fa fa-history"></i> Sở hữu khóa học trọn đời</p>
+                        </li>
+                        <br>
+                        <li>
+                            <p><i class="fa fa-certificate"></i> Cấp chứng nhận hoàn thành</p>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="mb-3">
+        @Html.ActionLink("Back to list", "ListSubject")
+    </div>
+</body>
+</html>

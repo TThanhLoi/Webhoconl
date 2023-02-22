@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
+
+.register__header {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 16px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.register {
+    flex: 4;
+}
+
+.header-icon {
+    align-self: center;  
+}
+
+.register-user {
+    display: flex;
+    margin: 40px ;
+}
+
+.mb-3 {
+    display: flex;
+}
+
+.form-label {    
+    display: inline-block;
+    width: 160px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.required {
+    color: #e74c3c;
+}
+
+.mb-3 .form-control {
+    max-width: 50%;
+    height: 30px;
+}
+
+.form-check {
+    padding-left: 205px !important;
+}
+
+.form-check-label {
+    display: flex;
+    margin-right: 20px;
+}
+
+.check-text {
+    margin-left: 4px;
+    color: #0689ba;
+    text-decoration: none;
+}
+
+.check-text:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.btn-primary {
+    margin-left: 218px;
+    padding: 8px 130px !important;
+    
+}
+
+.social {
+    flex: 2;
+    border-left: #dbdbdb solid 1px;
+}
+
+.user__login {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-text {
+    text-align: center;
+}
+
+.user__login .btn__login {    
+    background-color: #e74c3c;
+    width: 60%;
+    margin: 16px 0 0 98px;
+    color: white;
+}
+
+.text-line {
+    position: relative;
+    margin-bottom: 54px;
+}
+
+.text-line .text {    
+    position: absolute;
+    left: 45%;
+    width: 60px;
+    margin: 16px 0;
+    background: #FFFFFF;
+    text-align: center;
+}
+
+.text-line .line {
+    height: 1px;
+    width: 60%;
+    background: #dbdbdb;
+    margin: 10px 0 0 0;
+    position: absolute;
+    top: 20px;
+    left: 20%;
+}
+
+.social__login-form {
+    margin-left: 100px;
+}
+
+.social__login {
+    display: flex;
+    margin-top: 16px;
+}
+
+.social__icon {
+    font-size: 32px;
+    
+}
+
+.social__login-link {
+    margin-left: 8px;
+    text-decoration: none;
+}

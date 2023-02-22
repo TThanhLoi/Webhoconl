@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+@model List<Webhoconl.Models.Category>
+<section class="examples">
+
+
+    <div class="text-left">
+        <h4><strong>Danh Mục </strong></h4>
+    </div>
+
+    <ul class="wrapped clearfix">
+        @foreach (var item in Model)
+        {
+            <li>
+                <p class="service-image">
+                    <img src="~/Content/img/@item.ImgC" height="100px" width="100px" alt="">
+                </p>
+                <div class="inner">
+                    @Html.ActionLink(item.Name, "SubjectCategory", "Category", new { @Id = item.Category_ID }, null)
+                </div>
+            </li>
+        }
+    </ul>
+
+</section>

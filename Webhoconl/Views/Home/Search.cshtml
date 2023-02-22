@@ -1,0 +1,39 @@
+﻿@model List<Webhoconl.Models.Subject>
+@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+@using (Html.BeginForm("Search", "Home", FormMethod.Get))
+{
+    <p>
+        @Html.TextBox("SearchString", ViewBag.currentFilter as string)
+        <input type="submit" value=" Tìm Kiếm" />
+    </p>
+}
+<h2>Kết Quả Tìm Kiếm:</h2>
+<section class="examples">
+
+    <div class="text-left">
+        <h4><strong>@ViewBag.Title</strong></h4>
+    </div>
+
+    <ul class="wrapped clearfix">
+        @foreach (var sj in Model)
+        {
+            <li>
+                <p class="service-image">
+                    <img src="~/Content/img/@sj.Img" height="100px" width="100px" alt="">
+                </p>
+                <div class="inner">
+                    <a href="~/Category/SubjectDetail/@sj.Subject_ID">@sj.Name</a>
+                </div>
+                <div class="inner">
+                    <a href="~/Category/SubjectDetail/@sj.Subject_ID"><del>@sj.Price</del><sup>đ</sup></a><br />
+                    <a href="~/Category/SubjectDetail/@sj.Subject_ID">@sj.Price_discount<sup>đ</sup></a>
+                </div>
+
+            </li>
+        }
+    </ul>
+    }
+</section>
+}

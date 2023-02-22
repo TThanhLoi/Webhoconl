@@ -1,0 +1,195 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+@font-face {
+	font-family: Lato-Bold;
+	src:url("../font/Lato/Lato-Bold.ttf");
+}
+
+@font-face {
+	font-family: Lato-Light;
+	src:url("../font/Lato/Lato-Light.ttf");
+
+}
+
+@font-face {
+	font-family: Lato-Italic;
+	src:url("../font/Lato/Lato-Italic.ttf");
+}
+
+@font-face {
+	font-family: Lato-Light;
+	src:url("../font/Lato/Lato-Light.ttf");
+}
+
+@font-face {
+	font-family: Lato-LightItalic;
+	src:url("../font/Lato/Lato-LightItalic.ttf");
+}
+
+:root {
+	--primary-color: #444;
+	--second-color: #fff;
+	--third-color: #00aeef;
+	--fourth-color: #00aeef;
+	scroll-behavior: smooth;
+}
+
+body {
+	margin:auto;
+	color: var(--second-color);
+	font-family: Lato-Regular;
+}
+
+
+/*common*/
+button:not(header button) {
+	background-color: var(--second-color);
+	color: var(--second-color);
+	font-family: Lato-Bold;
+	font-size: 13px;
+	padding: 9px 13px;
+	border:none;
+	letter-spacing: 2px;
+	margin-bottom: 42px;
+}
+
+/*header*/
+
+ul {
+  list-style-type: none !important;
+}
+
+header {
+  padding: 5px;
+}
+
+.topnav a {
+  padding: 10px;
+  margin: 0;
+  padding-left:40px;
+}
+
+
+.carousel {
+  margin: 0 40px;
+  padding:0;
+}
+
+.home button {
+	color: #fff;
+	background-color: #00aeef;
+	font-family: Lato-Bold;
+	line-height: 37px;
+	border: none;
+	padding: 0 13px;
+	letter-spacing: 2px;
+	margin-bottom: 40px;
+}
+
+/*For mobile menu*/
+@media (max-width: 768px) {
+	.navbar-collapse {
+	    top: 100%;
+	    width: 100%;
+	    left: 0;
+	    background-color: #FFFFFF;
+	}
+
+	.navbar-light .navbar-nav .nav-link  {
+		margin-left: 0;
+		margin-right: 0;
+		margin-bottom: 5px;
+	}
+
+	.navbar {
+		padding-top:0;
+		padding-bottom: 0;
+	}
+}
+
+h2 {
+	background: #00aeef;
+	height: 50px;
+	color: #fff;
+	padding-left: 40px;
+}
+
+#left{
+	float:left;
+	width: 60%;
+}
+
+.u-box-cart {
+	padding: 18px;
+	margin: 10px 0 50px 0;
+	display: inline-block;
+	width:100%;
+	position: relative;
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px;
+	border-radius: 5px;
+    background: #fff;
+    margin-left: 70px;
+}
+
+.u-cart-course: last-child {
+	border: 0;
+	padding-bottom: 0;
+}
+
+.u-cart-course {
+	display: flex;
+	padding-top: 10px;
+}
+
+.title-cart-course {
+	text-align: left;
+	width: 70%;
+	line-height: 1.5em;
+	padding-left: 20px;
+}
+
+.price-cart-1 {
+	color: red;
+	font-size: 26px;
+	font-weight: bold;
+	padding-top: 10px;
+}
+
+#right {
+	float: right;
+	width: 30%;
+	padding: 12px;
+}
+
+.block-buy {
+  border-radius: 5px;
+  background: #fff;
+  padding: 20px 15px 5px 15px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px;
+  margin-right: 40px;
+  padding-top: 10px;
+  width:70%;
+
+
+}
+
+.block-buy li {
+	display: inline-block;
+}
+
+#button {
+	background: #00aeef;
+	display: inline-block;
+	border-radius:5px;
+	padding: 8px 50px;
+	font-size:18px;
+	text-align:center;
+
+}

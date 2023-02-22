@@ -1,0 +1,67 @@
+﻿@model PagedList.PagedList<Webhoconl.Models.Subject>
+@using PagedList.Mvc;
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Danh Sách Tất Cả Khóa Học</h2>
+<a href="~/Admin/AddSubject">Add Subject</a>
+@using (Html.BeginForm("Search", "Admin", FormMethod.Get))
+{
+    <p>
+        tìm tên sản phẩm: @Html.TextBox("SearchString", ViewBag.currentFilter as string)
+        <input type="submit" value=" Tìm Kiếm" />
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Price_discount</th>
+            <th scope="col">Lecturer</th>
+            <th scope="col">Img</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Subject_ID</th>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.Price_discount</td>
+                <td>@item.Lecturer</td>
+                <td> <img src="~/Content/img/@item.Img" height="100px" width="100px" /> </td>
+                <td>
+                    <a href="~/Admin/SubjectDetail/@item.Subject_ID">Details</a>|
+                    <a href="~/Admin/EditSubjects/@item.Subject_ID">Edit</a>|
+                    <a href="~/Admin/DeleteSubject/@item.Subject_ID">Delete</a>
+                </td>
+            </tr>
+        }
+
+
+
+    </tbody>
+
+</table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) /
+@Model.PageCount
+<div id="container" style="margin-left: 20px">
+    <p></p>
+    <p></p>
+    <div style="margin-left: 400px">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+        of @Model.PageCount
+
+        @Html.PagedListPager(
+        Model,
+        page => Url.Action("ListSubject", new { page }),
+        new PagedListRenderOptions()
+        {
+        LiElementClasses = new List<string> { "btn btn-warning m-2 " }
+        })
+    </div>
+</div>
